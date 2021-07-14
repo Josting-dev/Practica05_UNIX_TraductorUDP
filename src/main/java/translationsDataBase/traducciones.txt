@@ -1,0 +1,10 @@
+hello-hola
+world-mundo
+eat-comer
+word-palabra
+hand-mano
+head-cabeza
+mouse-raton
+port-puerto
+computer-computadora
+
