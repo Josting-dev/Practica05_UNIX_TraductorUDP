@@ -60,26 +60,28 @@ public class dataTR extends Thread {
         File fichero = new File(path__English);
         FileReader archivo;
         BufferedReader cadena;
+        int lang = 0;
 
         try {
 
             if (fichero.exists()) {
                 archivo = new FileReader(path__English);
                 cadena = new BufferedReader(archivo);
+                cad = traduccion.split("\\-");
 
                 while ((traduccion = cadena.readLine()) != null) {
-                    cad = traduccion.split("\\-");
-                    if (this.en.equals("true") && cad[0].compareTo(this.palabra) == 0) {
-                        cadenaFinal = cad[1];
+                    if (this.en.equals("true") && cad[lang].compareTo(this.palabra) == 0) {
+                        cadenaFinal = cad[lang];
                         break;
-                    } else if (this.es.equals("true") && cad[1].compareTo(this.palabra) == 0) {
-                        cadenaFinal = cad[0];
+                    } else if (this.es.equals("true") && cad[lang].compareTo(this.palabra) == 0) {
+                        cadenaFinal = cad[lang];
                         break;
+                    } else {
+                        cadenaFinal = "SELECCIONA LA TRADUCION VALIDA";
                     }
+                    
+                    lang++;
                 }
-
-                JOptionPane.showMessageDialog(null, "SELECCIONA LA TRADUCION VALIDA");
-                cadenaFinal = "SELECCIONA LA TRADUCION VALIDA";
 
                 /*
                   solo quiero ver si estar retornando la primera linea
