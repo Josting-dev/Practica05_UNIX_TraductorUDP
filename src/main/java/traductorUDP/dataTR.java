@@ -60,27 +60,24 @@ public class dataTR extends Thread {
         File fichero = new File(path__English);
         FileReader archivo;
         BufferedReader cadena;
-        int lang = 0;
 
         try {
 
             if (fichero.exists()) {
                 archivo = new FileReader(path__English);
                 cadena = new BufferedReader(archivo);
-                cad = traduccion.split("\\-");
 
                 while ((traduccion = cadena.readLine()) != null) {
-                    if (this.en.equals("true") && cad[lang].compareTo(this.palabra) == 0) {
-                        cadenaFinal = cad[lang];
+                    cad = traduccion.split("\\-");
+                    if (this.getEn().equals("true") && cad[0].contains(this.getMsj())) {
+                        cadenaFinal = cad[1];
                         break;
-                    } else if (this.es.equals("true") && cad[lang].compareTo(this.palabra) == 0) {
-                        cadenaFinal = cad[lang];
+                    } else if (this.getEs().equals("true") && cad[1].contains(this.getMsj())) {
+                        cadenaFinal = cad[0];
                         break;
                     } else {
                         cadenaFinal = "SELECCIONA LA TRADUCION VALIDA";
                     }
-                    
-                    lang++;
                 }
 
                 /*

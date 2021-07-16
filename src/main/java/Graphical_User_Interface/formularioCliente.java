@@ -194,14 +194,12 @@ public class formularioCliente extends javax.swing.JFrame {
         }
 
         //this.jTextArea2.setText(this.msjRespuesta);
-
         try {
             DatagramSocket socketUDP = new DatagramSocket();
 
             String cad = this.msjTextArea + "." + this.en_to_es + "." + this.es_to_en;
 
             //JOptionPane.showMessageDialog(null, cad);
-
             try {
                 byte[] mensaje = cad.getBytes();
                 InetAddress hostServer = InetAddress.getByName("localhost");
@@ -210,7 +208,7 @@ public class formularioCliente extends javax.swing.JFrame {
                 DatagramPacket peticion = new DatagramPacket(mensaje, mensaje.length, hostServer, port);
 
                 socketUDP.send(peticion);
-                
+
             } catch (Exception host) {
                 JOptionPane.showMessageDialog(null, "Servidor no encontrado: " + host.getMessage());
             }
@@ -221,10 +219,10 @@ public class formularioCliente extends javax.swing.JFrame {
             socketUDP.receive(respuesta);
 
             this.msjRespuesta = new String(respuesta.getData(), 0, respuesta.getLength());
-            
+
             this.jTextArea2.setText(this.msjRespuesta);
-            
-            socketUDP.close();
+
+            //socketUDP.close();
 
         } catch (SocketException e) {
             JOptionPane.showMessageDialog(null, "Socket: " + e.getMessage());
@@ -238,7 +236,7 @@ public class formularioCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     public static void main(String args[]) {
-        
+
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {

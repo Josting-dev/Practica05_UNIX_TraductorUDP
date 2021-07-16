@@ -19,7 +19,7 @@ public class clienteTranslate {
 
             cad = cliente.msjTextArea + "." + cliente.en_to_es + "." + cliente.es_to_en;
 
-            JOptionPane.showMessageDialog(null, cad);
+            //JOptionPane.showMessageDialog(null, cad);
 
             try {
                 byte[] mensaje = cad.getBytes();
