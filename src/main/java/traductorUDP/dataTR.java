@@ -75,7 +75,7 @@ public class dataTR extends Thread {
                     } else if (this.getEs().equals("true") && cad[1].contains(this.getMsj())) {
                         cadenaFinal = cad[0];
                         break;
-                    } else {
+                    } else if(!cad[0].equals(this.getMsj()) || !cad[1].equals(this.getMsj())) {
                         cadenaFinal = "SELECCIONA LA TRADUCION VALIDA";
                     }
                 }
